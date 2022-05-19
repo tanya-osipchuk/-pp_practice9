@@ -1,0 +1,65 @@
+#define _USE_MATH_DEFINES 
+#include <string> 
+#include <stack>
+#include <algorithm> 
+#include <cmath> 
+#include <iomanip> 
+#include <fstream> 
+#include <deque> 
+#include <vector> 
+#include <stdlib.h> 
+#include <set> 
+#include <queue>
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+class Car {
+public:
+	string country, model;
+	int year;
+
+	void print_information() {
+		cout << "Country,Model, and year of produce: " << country << ' ' << model << ' ' << year << endl;
+	}
+};
+
+class Audi {
+public:
+	string model_name, series;
+	bool sportcar;
+	void is_sportcar() {
+		if (sportcar) {
+			cout << model_name << "from " << series << "is sportcar" << endl;
+		}
+		else {
+			cout << model_name << "from " << series << "isn't sportcar" << endl;
+		}
+	}
+};
+
+class RS_Q8 : public Audi, public Car {
+public:
+	RS_Q8(string country, string  model, string model_name, string series, int year, bool sportcar) {
+		this->country = country;
+		this->model = model;//
+		this->model_name = model_name;//
+		this->series = series;//
+		this->sportcar = sportcar;
+	}
+	void get_info() {
+		cout << "Country: " + country + "\n";
+		cout << "Model: " + model+ "\n";
+		cout << "Model_name : " + model_name + "\n";
+		cout << "Series : " + series + "\n";
+		if (sportcar)cout << "YOUR CAR IS SPORTCAR!!!" << endl;
+	}
+
+};
+
+int main() {
+	RS_Q8 car("Germany", "Q", "RS_Q8", "RS_Q", 2020,true);
+	
+	car.get_info();
+}
